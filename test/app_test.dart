@@ -20,13 +20,13 @@ void main() {
     expect(fixture.text, 'Hello Angular');
   });
 
-  test('Greet world', () async {
-    await fixture.update((c) => c.name = 'World');
-    expect(fixture.text, 'Hello World');
-  });
+  // test('Greet world', () async {
+  //   await fixture.update((c) => c.name = 'World');
+  //   expect(fixture.text, 'Hello World');
+  // });
 
-  test('Greet world HTML', () {
-    final html = fixture.rootElement.innerHtml;
-    expect(html, '<h1>Hello Angular</h1>');
-  });
+  // test('Greet world HTML', () {
+  //   final html = fixture.rootElement.innerHtml;
+  //   expect(html, '<h1>Hello Angular</h1>');
+  // });
 }
