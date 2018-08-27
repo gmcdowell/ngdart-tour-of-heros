@@ -4,6 +4,8 @@ import 'package:angular_router/angular_router.dart';
 import 'src/hero_service.dart';
 import 'src/routes.dart';
 
+import 'events.dart'; // Event Bus
+
 @Component(
     selector: 'my-app',
     directives: [routerDirectives],
@@ -15,8 +17,25 @@ import 'src/routes.dart';
     templateUrl: 'app_component.html',
     styleUrls: ['app_component.css'])
 class AppComponent {
-  final title = 'Tour of Heros';
+  final String title = 'Tour of Heros';
   final Routes routes;
+  String _eventTitle = 'hello';
 
-  AppComponent(this.routes);
+  String get eventTitle => _eventTitle;
+
+  AppComponent(this.routes) {
+    eventBus.on().listen((event) {
+      print(event);
+      this._eventTitle = event.text;
+    });
+  }
+
+  void dashboardClick() {
+    print('dashboard');
+    eventBus.fire(EventA('dashboard'));
+  }
+
+  void heroesClick() {
+    eventBus.fire(EventA('hereos'));
+  }
 }

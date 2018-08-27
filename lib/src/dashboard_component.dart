@@ -9,6 +9,8 @@ import 'hero_service.dart';
 import 'hero.dart';
 import 'hero_search_component.dart';
 
+// import 'events.dart'; // Event Bus
+
 
 @Component(
   selector: 'my-dashboard',
